@@ -1,6 +1,6 @@
 import { useMemo, useSyncExternalStore } from 'react'
 import { storeManager } from './StoreManager'
-import './App.css'
+import './misc/App.css'
 
 export function DemoStore() {
   const state = useSyncExternalStore(

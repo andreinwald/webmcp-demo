@@ -1,4 +1,4 @@
-import storeItems from './data/StoreItems';
+import storeItems from './misc/StoreItems';
 
 export type ShoeItem = {
     id: number;
