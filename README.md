@@ -1,5 +1,6 @@
 # WebMCP Demo
 https://andreinwald.github.io/webmcp-demo
+
 <img src="./preview.png" height="300px">
 
 Prerequisites:
