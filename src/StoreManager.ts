@@ -92,18 +92,25 @@ class StoreManager {
         return this.state.cart.reduce((sum, item) => sum + item.quantity, 0);
     }
 
-    // Actions
-    setSelectedBrand(brand: string) {
+    filterByBrand(brand: string) {
         this.state = { ...this.state, selectedBrand: brand };
         this.notify();
     }
 
-    setSelectedGender(gender: string) {
+    getFilterOptions() {
+        return {
+            by_brand: this.getBrands(),
+            by_gender: this.getGenders(),
+            by_category: this.getCategories(),
+        }
+    }
+
+    filterByGender(gender: string) {
         this.state = { ...this.state, selectedGender: gender };
         this.notify();
     }
 
-    setSelectedCategory(category: string) {
+    filterByCategory(category: string) {
         this.state = { ...this.state, selectedCategory: category };
         this.notify();
     }

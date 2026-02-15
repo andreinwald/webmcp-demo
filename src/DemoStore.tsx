@@ -53,7 +53,7 @@ export function DemoStore() {
       <div className="filters">
         <div className="filter-group">
           <label>Brand:</label>
-          <select value={selectedBrand} onChange={e => storeManager.setSelectedBrand(e.target.value)}>
+          <select value={selectedBrand} onChange={e => storeManager.filterByBrand(e.target.value)}>
             {brands.map(brand => (
               <option key={brand} value={brand}>{brand}</option>
             ))}
@@ -62,7 +62,7 @@ export function DemoStore() {
 
         <div className="filter-group">
           <label>Gender:</label>
-          <select value={selectedGender} onChange={e => storeManager.setSelectedGender(e.target.value)}>
+          <select value={selectedGender} onChange={e => storeManager.filterByGender(e.target.value)}>
             {genders.map(gender => (
               <option key={gender} value={gender}>{gender}</option>
             ))}
@@ -71,7 +71,7 @@ export function DemoStore() {
 
         <div className="filter-group">
           <label>Category:</label>
-          <select value={selectedCategory} onChange={e => storeManager.setSelectedCategory(e.target.value)}>
+          <select value={selectedCategory} onChange={e => storeManager.filterByCategory(e.target.value)}>
             {categories.map(category => (
               <option key={category} value={category}>{category}</option>
             ))}

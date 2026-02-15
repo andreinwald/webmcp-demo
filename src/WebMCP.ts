@@ -112,6 +112,79 @@ export function registerWebMCPTools() {
             return "Shopping cart purchased successfully";
         }
     });
+
+    navigator.modelContext.registerTool({
+        name: "get_filter_options",
+        description: "Get available filter options for products",
+        inputSchema: {
+            type: "object",
+            properties: {},
+        },
+        execute: () => {
+            showAlert("get_filter_options called");
+            return storeManager.getFilterOptions();
+        }
+    });
+
+    navigator.modelContext.registerTool({
+        name: "filter_by_brand",
+        description: "Filter products by brand",
+        inputSchema: {
+            type: "object",
+            properties: {
+                brand: {
+                    type: "string",
+                    description: "The brand to filter by"
+                }
+            },
+            required: ["brand"]
+        },
+        execute: ({ brand }: { brand: string }) => {
+            showAlert("filter_by_brand called");
+            storeManager.filterByBrand(brand);
+            return `Successfully filtered by brand ${brand}`;
+        }
+    });
+    navigator.modelContext.registerTool({
+        name: "filter_by_gender",
+        description: "Filter products by gender (e.g., MEN, WOMEN, KIDS)",
+        inputSchema: {
+            type: "object",
+            properties: {
+                gender: {
+                    type: "string",
+                    description: "The gender to filter by"
+                }
+            },
+            required: ["gender"]
+        },
+        execute: ({ gender }: { gender: string }) => {
+            showAlert("filter_by_gender called");
+            storeManager.filterByGender(gender);
+            return `Successfully filtered by gender ${gender}`;
+        }
+    });
+
+    navigator.modelContext.registerTool({
+        name: "filter_by_category",
+        description: "Filter products by category",
+        inputSchema: {
+            type: "object",
+            properties: {
+                category: {
+                    type: "string",
+                    description: "The category to filter by"
+                }
+            },
+            required: ["category"]
+        },
+        execute: ({ category }: { category: string }) => {
+            showAlert("filter_by_category called");
+            storeManager.filterByCategory(category);
+            return `Successfully filtered by category ${category}`;
+        }
+    });
+
 }
 
 
