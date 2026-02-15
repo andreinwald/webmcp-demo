@@ -2,9 +2,10 @@ interface ModelContext {
     registerTool(tool: {
         name: string;
         description: string;
-        inputSchema: object;
+        inputSchema: any;
         execute: (args: any) => any;
     }): void;
+    unregisterTool(name: string)
 }
 
 interface Navigator {
