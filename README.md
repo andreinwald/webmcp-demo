@@ -3,14 +3,17 @@ https://andreinwald.github.io/webmcp-demo
 
 <img src="./preview.png" height="300px">
 
-Prerequisites:
+WebMCP requires an "instance" of website that has JavaScript runtime and likely a DOM tree. In other words, the browser opened the site in some form. It's designed for agentic browsers (like Google Chrome), not agents "outside" of browsers. Classic MCP or API should fit last ones better.
+
+## Requirements
 - Google Chrome version 146 or higher
 - Enable "WebMCP" in chrome://flags
 - Browser extension to call actions [chromewebstore](https://chromewebstore.google.com/detail/model-context-tool-inspec/gbpdfapgefenggkahomfgkhfehlcenpd)
 
+## React
 Actions registered in [DemoStore.tsx](./src/DemoStore.tsx)
 
-Example:
+## Action example
 ```typescript
   useRegisterMCP({
     name: "add_to_cart",
@@ -33,7 +36,6 @@ Example:
   })
 ```
 
-
-Read more:
+## Read more
 - https://developer.chrome.com/blog/webmcp-epp
 - https://webmachinelearning.github.io/webmcp
