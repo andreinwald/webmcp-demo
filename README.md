@@ -1,9 +1,9 @@
-# WebMCP Demo
+# Shoe store WebMCP Demo for Google Chrome
 https://andreinwald.github.io/webmcp-demo
 
 <img src="./preview.png" height="300px">
 
-WebMCP requires an "instance" of website that has JavaScript runtime and likely a DOM tree. In other words, the browser opened the site in some form. It's designed for agentic browsers (like Google Chrome), not agents "outside" of browsers. Classic MCP or API should fit last ones better.
+WebMCP requires an "instance" of website that has JavaScript runtime and likely a DOM tree. In other words, the browser opened the site in some form. It's designed for agentic browsers (like Google Chrome).
 
 ## How to test
 Right now for testing you need:
@@ -16,10 +16,26 @@ Example Prompt:
 Suggest the 3 best pairs of soccer shoes (foot size 45) available on this site. Add (one of suggestions) to cart and complete purchase.
 ```
 
-## React
-Actions registered in [DemoStore.tsx](./src/DemoStore.tsx)
+## WebMCP in React components
+For React, a more typical approach is to register tools directly in components, so the following wrapper is used:
 
-## Action example
+```typescript
+export function useRegisterMCP(props: {
+    name: string;
+    description: string;
+    inputSchema: any;
+    execute: (args?: any) => any;
+}) {
+    useEffect(() => {
+        navigator.modelContext.registerTool(props);
+        return () => {
+            navigator.modelContext.unregisterTool(props.name);
+        };
+    }, []);
+}
+```
+
+Then tools registered close to component and corresponding hooks this way:
 ```typescript
   useRegisterMCP({
     name: "add_to_cart",
@@ -41,6 +57,9 @@ Actions registered in [DemoStore.tsx](./src/DemoStore.tsx)
     }
   })
 ```
+
+See more in [DemoStore.tsx](./src/DemoStore.tsx)
+
 
 ## Read more
 - https://github.com/GoogleChromeLabs/webmcp-tools
