@@ -5,10 +5,16 @@ https://andreinwald.github.io/webmcp-demo
 
 WebMCP requires an "instance" of website that has JavaScript runtime and likely a DOM tree. In other words, the browser opened the site in some form. It's designed for agentic browsers (like Google Chrome), not agents "outside" of browsers. Classic MCP or API should fit last ones better.
 
-## Requirements
+## How to test
+Right now for testing you need:
 - Google Chrome version 146 or higher
 - Enable "WebMCP" in chrome://flags
 - Browser extension to call actions [chromewebstore](https://chromewebstore.google.com/detail/model-context-tool-inspec/gbpdfapgefenggkahomfgkhfehlcenpd)
+
+Example Prompt:
+```
+Suggest the 3 best pairs of soccer shoes (foot size 45) available on this site. Add (one of suggestions) to cart and complete purchase.
+```
 
 ## React
 Actions registered in [DemoStore.tsx](./src/DemoStore.tsx)
@@ -37,5 +43,6 @@ Actions registered in [DemoStore.tsx](./src/DemoStore.tsx)
 ```
 
 ## Read more
+- https://github.com/GoogleChromeLabs/webmcp-tools
 - https://developer.chrome.com/blog/webmcp-epp
 - https://webmachinelearning.github.io/webmcp
