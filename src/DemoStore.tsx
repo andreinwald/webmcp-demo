@@ -3,6 +3,7 @@ import storeItems from './misc/StoreItems'
 import './misc/App.css'
 import { showAlert } from './misc/ShowAlert'
 import { useRegisterMCP } from './useRegisterMCP'
+import { z } from 'zod'
 
 export function DemoStore() {
   const [selectedBrand, setSelectedBrand] = useState<string>('ALL')
@@ -73,10 +74,7 @@ export function DemoStore() {
   useRegisterMCP({
     name: "get_all_store_items",
     description: "Get all available store items",
-    inputSchema: {
-      type: "object",
-      properties: {},
-    },
+    paramsSchema: z.object({}),
     execute: () => {
       showAlert("get_all_store_items called")
       return shoes
@@ -86,16 +84,9 @@ export function DemoStore() {
   useRegisterMCP({
     name: "add_to_cart",
     description: "Add an item to the shopping cart",
-    inputSchema: {
-      type: "object",
-      properties: {
-        id: {
-          type: "number",
-          description: "The ID of the item to add to the cart"
-        }
-      },
-      required: ["id"]
-    },
+    paramsSchema: z.object({
+      id: z.number().describe("The ID of the item to add to the cart")
+    }),
     execute: ({ id }: { id: number }) => {
       showAlert("add_to_cart called")
       addToCart(id)
@@ -106,10 +97,6 @@ export function DemoStore() {
   useRegisterMCP({
     name: "display_cart",
     description: "Display the current shopping cart items to user",
-    inputSchema: {
-      type: "object",
-      properties: {},
-    },
     execute: () => {
       console.log("display_cart called")
       showAlert("display_cart called")
@@ -128,10 +115,6 @@ export function DemoStore() {
   useRegisterMCP({
     name: "purchase_cart",
     description: "Purchase the current shopping cart items",
-    inputSchema: {
-      type: "object",
-      properties: {},
-    },
     execute: () => {
       showAlert("purchase_cart called")
       handleBuy()
@@ -142,10 +125,6 @@ export function DemoStore() {
   useRegisterMCP({
     name: "get_filter_options",
     description: "Get available filter options for products",
-    inputSchema: {
-      type: "object",
-      properties: {},
-    },
     execute: () => {
       showAlert("get_filter_options called")
       return {
@@ -159,16 +138,9 @@ export function DemoStore() {
   useRegisterMCP({
     name: "filter_by_brand",
     description: "Filter products by brand",
-    inputSchema: {
-      type: "object",
-      properties: {
-        brand: {
-          type: "string",
-          description: "The brand to filter by"
-        }
-      },
-      required: ["brand"]
-    },
+    paramsSchema: z.object({
+      brand: z.string().describe("The brand to filter by")
+    }),
     execute: ({ brand }: { brand: string }) => {
       showAlert("filter_by_brand called")
       setSelectedBrand(brand)
@@ -179,16 +151,9 @@ export function DemoStore() {
   useRegisterMCP({
     name: "filter_by_gender",
     description: "Filter products by gender (e.g., MEN, WOMEN, KIDS)",
-    inputSchema: {
-      type: "object",
-      properties: {
-        gender: {
-          type: "string",
-          description: "The gender to filter by"
-        }
-      },
-      required: ["gender"]
-    },
+    paramsSchema: z.object({
+      gender: z.string().describe("The gender to filter by")
+    }),
     execute: ({ gender }: { gender: string }) => {
       showAlert("filter_by_gender called")
       setSelectedGender(gender)
@@ -199,16 +164,9 @@ export function DemoStore() {
   useRegisterMCP({
     name: "filter_by_category",
     description: "Filter products by category",
-    inputSchema: {
-      type: "object",
-      properties: {
-        category: {
-          type: "string",
-          description: "The category to filter by"
-        }
-      },
-      required: ["category"]
-    },
+    paramsSchema: z.object({
+      category: z.string().describe("The category to filter by")
+    }),
     execute: ({ category }: { category: string }) => {
       showAlert("filter_by_category called")
       setSelectedCategory(category)
