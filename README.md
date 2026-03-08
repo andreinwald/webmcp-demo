@@ -15,50 +15,44 @@ Example Prompt:
 ```
 Suggest the 3 best pairs of soccer shoes (foot size 45) available on this site. Add (one of suggestions) to cart and complete purchase.
 ```
+## Registering tools
+It's very handy istead of manually writing [JSON schema format](https://json-schema.org) for `inputSchema` WebMCP param, to use validator like Zod, that generates JSON schema for you.
 
-## WebMCP in React components
-For React, a more typical approach is to register tools directly in components, so the following wrapper is used:
-
+This repo has helper function [registerMCP](./src/useRegisterMCP.ts) that allows you build ZOD schema which way easier and also doin validation of input from LLM model.
+Usage:
 ```typescript
-export function useRegisterMCP(props: {
-    name: string;
-    description: string;
-    inputSchema: any;
-    execute: (args?: any) => any;
-}) {
-    useEffect(() => {
-        navigator.modelContext.registerTool(props);
-        return () => {
-            navigator.modelContext.unregisterTool(props.name);
-        };
-    }, []);
-}
+registerMCP({
+    name: "filter_by_brand",
+    description: "Filter products by brand",
+    paramsSchema: z.object({
+      brand: z.string().describe("The brand to filter by")
+    }),
+    execute: ({ brand }: { brand: string }) => {
+      setSelectedBrand(brand)
+      return `Successfully filtered by brand ${brand}`
+    }
+})
 ```
 
-Then tools registered close to component and corresponding hooks this way:
+## Registering tools in React components
+For React, a more typical approach is to register tools directly in components, so its [useRegisterMCP](./src/useRegisterMCP.ts) wrapper created also:
+
 ```typescript
-  useRegisterMCP({
+useRegisterMCP({
     name: "add_to_cart",
     description: "Add an item to the shopping cart",
-    inputSchema: {
-      type: "object",
-      properties: {
-        id: {
-          type: "number",
-          description: "The ID of the item to add to the cart"
-        }
-      },
-      required: ["id"]
-    },
+    paramsSchema: z.object({
+      id: z.number().describe("The ID of the item to add to the cart")
+    }),
     execute: ({ id }: { id: number }) => {
-      showAlert("add_to_cart called")
       addToCart(id)
       return `Successfully added item ${id} to cart`
     }
-  })
+})
 ```
 
-See more in [DemoStore.tsx](./src/DemoStore.tsx)
+
+See more examples in [DemoStore.tsx](./src/DemoStore.tsx)
 
 
 ## Read more
