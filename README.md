@@ -8,8 +8,8 @@ WebMCP requires an "instance" of website that has JavaScript runtime and likely 
 ## How to test
 Right now for testing you need:
 - Google Chrome version 146 or higher
-- Enable "WebMCP" in chrome://flags
-- Browser extension to call actions [chromewebstore](https://chromewebstore.google.com/detail/model-context-tool-inspec/gbpdfapgefenggkahomfgkhfehlcenpd)
+- Go to chrome://flags and enable "WebMCP for testing"
+- Use browser extension to call actions [chromewebstore](https://chromewebstore.google.com/detail/model-context-tool-inspec/gbpdfapgefenggkahomfgkhfehlcenpd)
 
 Example Prompt:
 ```
