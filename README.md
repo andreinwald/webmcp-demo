@@ -56,6 +56,9 @@ See more examples in [DemoStore.tsx](./src/DemoStore.tsx)
 
 
 ## Read more
-- https://github.com/GoogleChromeLabs/webmcp-tools
-- https://developer.chrome.com/blog/webmcp-epp
-- https://webmachinelearning.github.io/webmcp
+- [Announcement from Google Chrome](https://developer.chrome.com/blog/webmcp-epp)
+- [When to use WebMCP and MCP](https://developer.chrome.com/blog/webmcp-mcp-usage)
+- [Collection of WebMCP tools](https://github.com/GoogleChromeLabs/webmcp-tools)
+- [Draft of standard for W3C](https://webmachinelearning.github.io/webmcp)
+- [Extension for inspecting WebMCP tools](https://chromewebstore.google.com/detail/model-context-tool-inspec/gbpdfapgefenggkahomfgkhfehlcenpd)
+- [JSON Schema format for `inputSchema` param](https://json-schema.org)
