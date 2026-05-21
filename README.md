@@ -7,7 +7,7 @@ WebMCP requires an "instance" of website that has JavaScript runtime and likely 
 
 ## How to test
 Right now for testing you need:
-- Google Chrome version 146 or higher
+- Google Chrome version 149 or higher
 - Go to chrome://flags and enable "WebMCP for testing"
 - Use Inspect -> Application -> WebMCP to call actions (until it's enabled for Gemini in Chrome)
 
