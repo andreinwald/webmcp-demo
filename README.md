@@ -1,7 +1,7 @@
 # Shoe store WebMCP Demo for Google Chrome
 https://andreinwald.github.io/webmcp-demo
 
-<img src="./preview.png" height="300px">
+<img src="./preview.png" height="400px">
 
 WebMCP requires an "instance" of website that has JavaScript runtime and likely a DOM tree. In other words, the browser opened the site in some form. It's designed for agentic browsers (like Google Chrome).
 
@@ -9,7 +9,7 @@ WebMCP requires an "instance" of website that has JavaScript runtime and likely 
 Right now for testing you need:
 - Google Chrome version 146 or higher
 - Go to chrome://flags and enable "WebMCP for testing"
-- Use browser extension to call actions [chromewebstore](https://chromewebstore.google.com/detail/model-context-tool-inspec/gbpdfapgefenggkahomfgkhfehlcenpd)
+- Use Inspect -> Application -> WebMCP to call actions (until it's enabled for Gemini in Chrome)
 
 Example Prompt:
 ```
@@ -60,5 +60,4 @@ See more examples in [DemoStore.tsx](./src/DemoStore.tsx)
 - [When to use WebMCP and MCP](https://developer.chrome.com/blog/webmcp-mcp-usage)
 - [Collection of WebMCP tools](https://github.com/GoogleChromeLabs/webmcp-tools)
 - [Draft of standard for W3C](https://webmachinelearning.github.io/webmcp)
-- [Extension for inspecting WebMCP tools](https://chromewebstore.google.com/detail/model-context-tool-inspec/gbpdfapgefenggkahomfgkhfehlcenpd)
 - [JSON Schema format for `inputSchema` param](https://json-schema.org)
