@@ -56,7 +56,7 @@ See more examples in [DemoStore.tsx](./src/DemoStore.tsx)
 
 
 ## Read more
-- [Google IO video](https://io.google/2026/explore/technical-session-32]
+- [Google IO video](https://io.google/2026/explore/technical-session-32)
 - [Announcement from Google Chrome](https://developer.chrome.com/blog/webmcp-epp)
 - [When to use WebMCP and MCP](https://developer.chrome.com/blog/webmcp-mcp-usage)
 - [Collection of WebMCP tools](https://github.com/GoogleChromeLabs/webmcp-tools)
